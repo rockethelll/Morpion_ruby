@@ -9,5 +9,4 @@ class Players
     @value = value
   end
 
-  
 end

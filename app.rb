@@ -13,5 +13,8 @@ require 'show'
 
 # Application.new.perform
 game = Game.new
+board = Board.new
+# game.play_turn
+
 
 binding.pry

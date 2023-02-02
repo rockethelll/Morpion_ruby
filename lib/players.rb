@@ -2,11 +2,11 @@
 
 # Create players
 class Players
-  attr_reader :name, :value
+  attr_reader :name, :symbol
 
-  def initialize(name, value)
+  def initialize(name, symbol)
     @name = name
-    @value = value
+    @symbol = symbol
   end
 
 end

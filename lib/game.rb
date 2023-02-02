@@ -4,12 +4,12 @@
 class Game
   attr_accessor :current_player, :status_game, :board, :array_players
 
-  def initialize
+  def initialize(item)
     puts 'Bienvenue au jeu de morpion ...'
     puts 'Joueur 1, quel est ton nom ?'
     create_player
-    
-    #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
+    @board = item
+    # TO DO : créé un board, met le status à "on going", défini un current_player
   end
 
   def create_player
@@ -24,12 +24,13 @@ class Game
     @array_players << Players.new(player2_name, player2_symbol)
   end
 
-  def turn
-    # TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board).
-    # Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné,
-    # passe au joueur suivant si la partie n'est pas finie.
-    turn = 1
-    puts "#{@array_players[0].name} va commencer la partie"
+  def turn(player)
+    puts 'Quelle case joues-tu ?'
+    choice = gets.chomp.upcase
+    player_case = board.array_cases.select { |board_case| board_case.position == choice }.first
+    if player_case.content.match(/\s/)
+      player_case.content = player.value
+    end
   end
 
   def new_round
@@ -40,4 +41,3 @@ class Game
     # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
   end
 end
-

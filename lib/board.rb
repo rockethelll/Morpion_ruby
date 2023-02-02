@@ -15,6 +15,7 @@ class Board
     @c2 = BoardCase.new('C2', ' ')
     @c3 = BoardCase.new('C3', ' ')
     @array_cases = [@a1, @a2, @a3, @b1, @b2, @b3, @c1, @c2, @c3]
+    # plate
   end
 
   def play_turn
@@ -44,5 +45,16 @@ class Board
     else
       false
     end
+  end
+
+  def plate
+    letter = ('A'.ord)
+    puts '       1       2       3    '
+    @array_cases.each do |case_grid|
+      puts '    ------- ------- --------'
+      puts " #{letter.chr} |   #{case_grid[0].content}   |   #{case_grid[1].content}   |   #{case_grid[2].content}   |"
+      letter += 1
+    end
+    puts '    ------- ------- --------'
   end
 end

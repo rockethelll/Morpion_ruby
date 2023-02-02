@@ -14,6 +14,6 @@ require 'show'
 # Application.new.perform
 board = Board.new
 game = Game.new(board)
-game.turn()
+game.turn
 
 binding.pry

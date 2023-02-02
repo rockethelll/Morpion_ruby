@@ -24,12 +24,17 @@ class Game
     @array_players << Players.new(player2_name, player2_symbol)
   end
 
-  def turn(player)
-    puts 'Quelle case joues-tu ?'
-    choice = gets.chomp.upcase
-    player_case = board.array_cases.select { |board_case| board_case.position == choice }.first
-    if player_case.content.match(/\s/)
-      player_case.content = player.value
+  def turn
+    @array_players.each do |player|
+      puts "#{player.name} joue"
+      puts 'Quelle case joues-tu ?'
+      choice = gets.chomp.upcase
+      player_case = board.array_cases.select { |board_case| board_case.position == choice }.first
+      if player_case.content.match(/\s/)
+        player_case.content = player.symbol
+      # else
+      #   puts 'Cette case est déjà prise, recommence ...'
+      end
     end
   end
 
